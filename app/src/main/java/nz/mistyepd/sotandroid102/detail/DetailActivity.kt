@@ -5,9 +5,11 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import nz.mistyepd.sotandroid102.R
 import nz.mistyepd.sotandroid102.data.models.Film
 import nz.mistyepd.sotandroid102.databinding.ActivityDetailBinding
+
 
 class DetailActivity : AppCompatActivity() {
 	
@@ -22,19 +24,26 @@ class DetailActivity : AppCompatActivity() {
 		
 		film = intent.getParcelableExtra(EXTRA_FILM)
 		
-		binding.item = film
+		binding.model = DetailViewModel(film)
 		
+	}
+	
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		if (item.itemId == android.R.id.home) {
+			onBackPressed()
+			return true
+		}
+		
+		return super.onOptionsItemSelected(item)
 	}
 	
 	
 	companion object {
-		fun getIntent(context: Context, film: Film): Intent {
-			val intent = Intent(context, DetailActivity::class.java)
-			intent.putExtra(EXTRA_FILM, film)
-			return intent
-		}
 		
 		val EXTRA_FILM = "_EXTRA_FILM"
+		
+		fun getIntent(context: Context, film: Film): Intent = Intent(context, DetailActivity::class.java)
+				.putExtra(EXTRA_FILM, film)
 		
 	}
 }
