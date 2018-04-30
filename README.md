@@ -3,7 +3,7 @@
 The actual repository for the workshop is located at https://github.com/TheRealAgentK/SummerOfTech-Android-2018, this is just a dumping ground for the end result
 
 ## Rough step outline
-1-15. Located in proper workshop repo
+1. to 15. Located in proper workshop repo
 16. Convert to new API
 17. Add styles and colours for SoT, and material paddings (explain resources and styling, material design)
 18. Create Detail Activity with on click listener (explain intent contracts and passing data)
